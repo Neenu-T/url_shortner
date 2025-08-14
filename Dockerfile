@@ -23,4 +23,4 @@ RUN curl -s https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-amd64.zip -o
 EXPOSE 8000
 RUN ngrok authtoken 31GfFYPOp9MRIDHX7ZgdPiNU7zd_5rUnDJWcDRze1bHwMA6Wi
 # Start Django and Ngrok
-CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8000 & ngrok http 8000 --log=stdout"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000 & ngrok http 8000 --log=stdout"]]
