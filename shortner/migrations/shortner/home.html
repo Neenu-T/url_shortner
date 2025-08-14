@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URL Shortener</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'shortner/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'shortner/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Shorten URL</button>
+        </form>
+        {% if short_url %}
+            <p>Shortened URL: <a href="{{ short_url }}">{{ short_url }}</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
